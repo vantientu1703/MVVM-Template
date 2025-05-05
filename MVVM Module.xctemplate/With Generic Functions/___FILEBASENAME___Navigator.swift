@@ -1,8 +1,8 @@
-import FOiund
+import Foundation
 import RxSwift
 
 protocol ___VARIABLE_productName:identifier___Navigator {
-    
+
 }
 
 class Default___VARIABLE_productName:identifier___Navigator { 

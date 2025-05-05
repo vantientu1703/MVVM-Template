@@ -1,4 +1,4 @@
-import FOiund
+import Foundation
 import RxSwift
 
 protocol ___VARIABLE_productName:identifier___Usecase {
