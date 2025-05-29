@@ -7,10 +7,10 @@ protocol ___VARIABLE_productName:identifier___Navigator {
 
 class Default___VARIABLE_productName:identifier___Navigator { 
 
-    weak var navigator: UINavigationController?
+    weak var navigation: UINavigationController?
 
-    init(navigator: UINavigationController?) {
-        self.navigator = navigator
+    init(navigation: UINavigationController?) {
+        self.navigation = navigation
     }
 }
 
