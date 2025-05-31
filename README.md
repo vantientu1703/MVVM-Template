@@ -29,6 +29,12 @@ Download the Repo to your computer, open the folder in Terminal, execute this co
 sudo swift install.swift
 ```
 
+or
+
+```shell
+sudo --preserve-env=HOME swift install.swift
+```
+
 If all it's ok you now could find your template in Xcode.
 
 #### Useage
