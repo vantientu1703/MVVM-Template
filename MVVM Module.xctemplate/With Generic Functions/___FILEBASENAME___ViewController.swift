@@ -8,6 +8,11 @@ class ___VARIABLE_productName:identifier___View: UIViewController {
     
     let viewModel: ___VARIABLE_productName:identifier___ViewModel
 
+    init(viewModel: ___VARIABLE_productName:identifier___ViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
