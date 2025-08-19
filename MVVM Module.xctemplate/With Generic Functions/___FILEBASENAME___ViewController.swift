@@ -3,7 +3,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ___VARIABLE_productName:identifier___View: UIViewController {
+class ___VARIABLE_productName:identifier___ViewController: UIViewController {
     
     
     let viewModel: ___VARIABLE_productName:identifier___ViewModel
