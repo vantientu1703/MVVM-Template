@@ -46,6 +46,7 @@
 				<key>templateType</key>
 				<array>
 					<string>With Generic Functions</string>
+					<string>With Protocol Delegate</string>
 				</array>
 			</dict>
 			<key>Type</key>
@@ -67,6 +68,7 @@
 			<key>Values</key>
 			<array>
 				<string>With Generic Functions</string>
+				<string>With Protocol Delegate</string>
 			</array>
 		</dict>
 	</array>
