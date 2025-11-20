@@ -8,7 +8,7 @@
 
 import Foundation
 
-let templateName = "MVVM-RxSwift.xctemplate"
+let templateName = "MVVM-Swift.xctemplate"
 
 // Sử dụng user templates directory (không cần sudo)
 // Nếu muốn dùng system templates, có thể thay đổi sang system path
