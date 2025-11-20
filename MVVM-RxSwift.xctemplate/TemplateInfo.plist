@@ -11,7 +11,7 @@
 		<string>com.apple.platform.iphoneos</string>
 	</array>
 	<key>DefaultCompletionName</key>
-	<string>SwiftMvvmModule</string>
+	<string>SwiftMVVMModule</string>
 	<key>Description</key>
 	<string>Basic Swift MVVM module template. Creates View, ViewModel, Model, DataSource, &amp; UI.</string>
 	<key>Kind</key>
@@ -42,33 +42,33 @@
 			<key>Identifier</key>
 			<string>productName</string>
 			<key>RequiredOptions</key>
-      <dict>
-        <key>templateType</key>
-        <array>
-			<string>With Generic Functions</string>
-        </array>
-      </dict>
+			<dict>
+				<key>templateType</key>
+				<array>
+					<string>With Generic Functions</string>
+				</array>
+			</dict>
 			<key>Type</key>
 			<string>static</string>
 		</dict>
 		<dict>
-      <key>Identifier</key>
-      <string>templateType</string>
-      <key>Required</key>
-      <true/>
-      <key>Name</key>
-      <string>Template type:</string>
-      <key>Description</key>
-      <string>The type of template to use</string>
-      <key>Type</key>
-      <string>popup</string>
-      <key>Default</key>
-      <string>With Generic Functions</string>
-      <key>Values</key>
-      <array>
-        <string>With Generic Functions</string>
-      </array>
-    </dict>
+			<key>Identifier</key>
+			<string>templateType</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Template type:</string>
+			<key>Description</key>
+			<string>The type of template to use</string>
+			<key>Type</key>
+			<string>popup</string>
+			<key>Default</key>
+			<string>With Generic Functions</string>
+			<key>Values</key>
+			<array>
+				<string>With Generic Functions</string>
+			</array>
+		</dict>
 	</array>
 	<key>Template Author</key>
 	<string>Mohamad Kaakati - @Kaakati</string>
