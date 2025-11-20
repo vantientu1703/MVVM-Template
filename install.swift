@@ -30,33 +30,50 @@ func printInConsole(_ message: Any) {
   print("====================================")
 }
 
+func findTemplatePath(templateName: String) -> String? {
+  let fileManager = FileManager.default
+
+  // 1. Tìm trong thư mục hiện tại (ưu tiên cao nhất)
+  let currentDir = fileManager.currentDirectoryPath
+  var possiblePaths = ["\(currentDir)/\(templateName)"]
+
+  // 2. Tìm trong thư mục chứa script (nếu script được gọi từ đường dẫn tuyệt đối)
+  if let scriptPath = CommandLine.arguments.first,
+    scriptPath.hasPrefix("/")
+  {
+    let scriptDir = (scriptPath as NSString).deletingLastPathComponent
+    if scriptDir != "/" && scriptDir != currentDir {
+      possiblePaths.append("\(scriptDir)/\(templateName)")
+    }
+  }
+
+  // 3. Tìm trong thư mục cha của thư mục hiện tại
+  let parentDir = (currentDir as NSString).deletingLastPathComponent
+  if parentDir != "/" {
+    possiblePaths.append("\(parentDir)/\(templateName)")
+  }
+
+  // Tìm đường dẫn đầu tiên tồn tại
+  for path in possiblePaths {
+    if fileManager.fileExists(atPath: path) {
+      return path
+    }
+  }
+
+  return nil
+}
+
 func moveTemplate() {
 
   let fileManager = FileManager.default
   let destinationPath = getDestinationPath()
 
   // Tìm đường dẫn tuyệt đối của template
-  // Khi chạy với sudo, working directory có thể thay đổi, nên cần tìm đường dẫn tuyệt đối
-  let currentDir = fileManager.currentDirectoryPath
-  var sourcePath = "\(currentDir)/\(templateName)"
-
-  // Nếu không tìm thấy ở thư mục hiện tại, thử tìm ở các vị trí khác
-  if !fileManager.fileExists(atPath: sourcePath) {
-    // Thử tìm trong HOME directory
-    if let homeDir = ProcessInfo.processInfo.environment["HOME"] {
-      let possiblePath =
-        "\(homeDir)/Desktop/outsource-projects/MVVM-Template-Generator/\(templateName)"
-      if fileManager.fileExists(atPath: possiblePath) {
-        sourcePath = possiblePath
-      }
-    }
-  }
-
-  // Kiểm tra xem template có tồn tại không
-  if !fileManager.fileExists(atPath: sourcePath) {
+  guard let sourcePath = findTemplatePath(templateName: templateName) else {
     printInConsole("❌  Error: Cannot find template '\(templateName)'")
-    printInConsole("Current directory: \(currentDir)")
+    printInConsole("Current directory: \(fileManager.currentDirectoryPath)")
     printInConsole("Please run this script from the directory containing '\(templateName)'")
+    printInConsole("Or place the script in the same directory as the template")
     printInConsole("Example: cd /path/to/MVVM-Template-Generator && swift install.swift")
     return
   }
